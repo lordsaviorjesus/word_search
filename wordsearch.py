@@ -1,14 +1,9 @@
 """
 Contains solutions to wordsearch
-
 CPE101
-
 Section <05>
-
 Project 2, Part 2
-
 Name: <Sameera> <Balijepalli> <and> <Augustus> <Soto>
-
 Cal Poly User: <sbalijep> <and> <ajsoto>
 """
 
