@@ -1,13 +1,18 @@
-"""Contains solutions to wordsearch
+"""
+Contains solutions to wordsearch
+
 CPE101
+
 Section <05>
+
 Project 2, Part 2
+
 Name: <Sameera> <Balijepalli> <and> <Augustus> <Soto>
+
 Cal Poly User: <sbalijep> <and> <ajsoto>
 """
 
-#This is a test comment
-#this is a test comment
+
 def reverse_string(string: str):
     """Function returns the reverse of an inputted string
     Args:
