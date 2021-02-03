@@ -1,12 +1,19 @@
-"""Contains solutions to wordsearch
+"""
+Contains solutions to wordsearch
+
 CPE101
+
 Section <05>
+
 Project 2, Part 2
+
 Name: <Sameera> <Balijepalli> <and> <Augustus> <Soto>
+
 Cal Poly User: <sbalijep> <and> <ajsoto>
 """
 
 #This is a test comment
+
 def reverse_string(string: str):
     """Function returns the reverse of an inputted string
     Args:
@@ -18,7 +25,6 @@ def reverse_string(string: str):
     for _x in string:
         _reverse = _x + _reverse
     return _reverse
-
 
 def transpose_string(string: str, row_len: int):
     """Function returns the transposed version of string
