@@ -74,10 +74,17 @@ def find_word(puzzle, word, row_len):
     column = transpose_string(puzzle,row_len)
     
     
-    #found FORWARD (easy one):
+    #found FORWARD:
     if puzzle.find(word) != -1:
         position = puzzle.find(word)
         display_word(word,"forward", 2,2) # <---need to change to variables
+        
+    #found BACKWARD:
+    
+    #found UP:
+        
+    #found DOWN:
+    
 
 
 find_word("abcbobxyz", "bob", 3)
