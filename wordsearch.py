@@ -58,8 +58,7 @@ def transpose_string(string: str, row_len: int):
         i = i + 1
     return new_string
 
-print(transpose_string('ABCGITXYZ',3))
-print("")
+
 
 
 def display_word(word, direction, row, column):
@@ -67,7 +66,6 @@ def display_word(word, direction, row, column):
     I created this b/c it'll make the find_word function easier I think
     """
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
-print(display_word("bob","forward",2,2))
 
 
 def find_word(puzzle, word, row_len):
@@ -85,11 +83,14 @@ def find_word(puzzle, word, row_len):
         
     #found DOWN:
     
-
-
-find_word("abcbobxyz", "bob", 3)
-
-
+if __name__ == "__main__":
+    
+    print(transpose_string('ABCGITXYZ',3))
+    print("")
+    print(display_word("bob","forward",2,2))
+    find_word("abcbobxyz", "bob", 3)
+    
+    
 
 
 
