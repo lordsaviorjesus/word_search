@@ -29,12 +29,74 @@ def transpose_string(string: str, row_len: int):
     Returns:
         new_string(str): transposed version of inputted string
     """
+    #Hey! I changed some things:
+    """
     new_string = ""
     for i in range(row_len):
-        for j in range(len(string)):
+        for j in range(len(string)): #what does j do here?
             if i < len(string):
                 new_string = new_string + string[i]
                 i = i + row_len
     return new_string
 
+    ^^^ PREVIOUS CODE ^^^
+    This is the code we had before. I realized that I wasn't sure exactly what
+    purpose the for loop for j had, so I replaced it. Also, I might not be
+    understanding everything, but I wasn't sure what purpose the if i<len(string):
+    line served. Won't i always be less than the length of the string? essentially,
+    if we had a row length larger than the string, then we can only make one row.
+    Let me know on discord if you see any imminent problems with what I changed, but
+    I think what I changed works.
+    -Gus
+    """
+    new_string = ""
+    if row_len > len(string):
+        return string
+    #Main loop:
+    for i in range(row_len):
+        new_string = new_string + string[i::row_len]
+        i = i + 1
+    return new_string
 
+print(transpose_string('ABCGITXYZ',3))
+print("")
+
+
+def display_word(word, direction, row, column):
+    """
+    I created this b/c it'll make the find_word function easier I think
+    """
+    return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
+print(display_word("bob","forward",2,2))
+
+
+def find_word(puzzle, word, row_len):
+    column = transpose_string(puzzle,row_len)
+    
+    
+    #found FORWARD (easy one):
+    if puzzle.find(word) != -1:
+        position = puzzle.find(word)
+        display_word(word,"forward", 2,2) # <---need to change to variables
+
+
+find_word("abcbobxyz", "bob", 3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
