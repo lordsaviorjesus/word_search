@@ -69,7 +69,7 @@ def display_word(word, direction, row, column):
 
 
 def find_word(puzzle, word, row_len):
-    column = transpose_string(puzzle,row_len)
+    column = transpose_string(puzzle, row_len)
     
     
     #found FORWARD:
