@@ -78,6 +78,12 @@ def find_word(puzzle, word, row_len):
         print(display_word(word,"forward", 2,2)) # <---need to change to variables
         
     #found BACKWARD:
+    #if puzzle.find(word) != -1:
+        #reverse = reverse_string(string)
+        #position = puzzle.find(word)
+        #position = reverse_string
+    #Hey - I'm still working on this so dont test backward just yet^
+
     
     #found UP:
         
@@ -85,7 +91,7 @@ def find_word(puzzle, word, row_len):
     
 if __name__ == "__main__":
     
-    print(transpose_string('abcdefghi',3))
+    print(transpose_string('abcgitxyz',3))
     print("")
     find_word("abcbobxyz", "bob", 3)
     
