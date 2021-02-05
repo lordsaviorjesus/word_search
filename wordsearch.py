@@ -70,7 +70,6 @@ def display_word(word, direction, row, column):
 
 def find_word(puzzle: str, word: str, row_len: int):
     column = transpose_string(puzzle, row_len)
-    _reverse = reverse_string(puzzle)
     
     """Hey! I'm thinking if we put this function in a while loop and test all functions, it'll go through 
     each if statement and then return the value"""
