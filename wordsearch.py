@@ -72,7 +72,7 @@ def find_word(puzzle: str, word: str, row_len: int):
     column = transpose_string(puzzle, row_len)
     
     """Hey! I'm thinking if we put this function in a while loop and test all functions, it'll go through 
-    each if statement and then return the value instead of displaying every IF statement?"""
+    each if statement and then return the value instead of displaying every IF statement?s"""
 
     #found FORWARD:
     if puzzle.find(word) != -1:
