@@ -69,7 +69,8 @@ def display_word(word, direction, row, column):
 
 
 def find_word(puzzle: str, word: str, row_len: int):
-    column = transpose_string(puzzle, row_len)
+    _column = transpose_string(puzzle, row_len)
+    _reverse = reverse_string(puzzle)
     
     #i'm thinking it might be beneficial to write a while loop for this function 
         #this way it searches for every row in the puzzle for the word? 
@@ -80,16 +81,18 @@ def find_word(puzzle: str, word: str, row_len: int):
         print(display_word(word,"forward", 2,2)) # <---need to change to variables
         
     #found BACKWARD:
-    #if puzzle.find(word) != -1:
-        #reverse = reverse_string(string)
-        #position = puzzle.find(word)
-        #position = reverse_string
+    if puzzle.find(word) != -1:
+        position = _reverse.find(word)
+        print(display_word(word, "backward", 2, 2))
     #Hey - I'm still working on this so dont test backward just yet^
 
     
     #found UP:
         
     #found DOWN:
+
+    #Value not found: 
+
     
 if __name__ == "__main__":
     
