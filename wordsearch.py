@@ -68,9 +68,11 @@ def display_word(word, direction, row, column):
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
 
 
-def find_word(puzzle, word, row_len):
+def find_word(puzzle: str, word: str, row_len: int):
     column = transpose_string(puzzle, row_len)
     
+    #i'm thinking it might be beneficial to write a while loop for this function 
+        #this way it searches for every row in the puzzle for the word? 
     
     #found FORWARD:
     if puzzle.find(word) != -1:
