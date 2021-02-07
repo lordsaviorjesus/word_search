@@ -165,4 +165,3 @@ def find_word(puzzle, word, row_len):
     if search_up(puzzle, word, row_len) != -1:
         return search_up(puzzle, word, row_len)
     return word + ": word not found"
-    
