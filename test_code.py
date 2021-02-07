@@ -36,12 +36,23 @@ display_puzzle("qfYWkBq4Ynvlyo8WGJC5pEfSEkoCopzruyHFAici3Dj8XHYjw8JkWlLTf7nVQ"\
 
 print("")
 
+
+"""Hey, this isn't really a function for us to use, but I think I figured out
+how to split up the words so we can call the fucntions on them. Basically, under
+the if statement I wrote, we could call the functions on those words to look
+for them in the word search puzzle. lmk what you think"""
+
 def split_words(string):
+    past_location = 0
 
     for position in range(len(string)):
         if string[position] == " ":
-            print("Hello")
+            print(string[past_location: position])
+            past_location = position
 
-            
+    #Accounting for the rest of the string:
+    print(string[past_location:])
+
+#Example:
 split_words("There was a dog")
 
