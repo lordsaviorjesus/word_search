@@ -31,7 +31,6 @@ def transpose_string(string: str, row_len: int):
     new_string = ""
     if row_len > len(string):
         return string
-    #Main loop:
     for i in range(row_len):
         new_string = new_string + string[i::row_len]
         i = i + 1
@@ -68,9 +67,23 @@ def display_word(word, direction, row, column):
     """
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
 
+def search_backward(puzzle, word, row_len):
+    if puzzle.find(word) == -1:
+        _reverse = reverse_string(puzzle)
+        column = _reverse.find(word)
+        column = 8 - column
+        direction = "backward"
+        return (word, direction, row_len, column)
+
+def search_down(puzzle, word, row_len):
+    if puzzle.find(word) == -1:
+        _down = transpose_string(puzzle, row_len) #--> need to change to row_len
+        position = _down.find(word)
+        position = 8 - position
+        direction = "down"
+        return(word, direction, row_len, position,)
     
-def find_word(puzzle: str, word: str, row_len: int): #finds the word
-    column = transpose_string(puzzle, row_len)
+def find_word(puzzle, word, row_len): #finds the word
     
     while puzzle.find(word) == -1:
         #found BACKWARD
@@ -79,7 +92,7 @@ def find_word(puzzle: str, word: str, row_len: int): #finds the word
             position = _reverse.find(word)
             position = 9 - position 
             direction = "backward"
-            return (display_word(word, direction, 0, 2)) #<---need to change variables 
+            return (display_word(word, direction, 0, position)) #<---need to change variables 
         #found DOWN
         if puzzle.find(word) == -1:
             _down = transpose_string(puzzle,row_len)
