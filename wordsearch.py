@@ -120,10 +120,19 @@ def search_down(puzzle, word, row_len):
     position = _down.find(word)
     if position == -1:
         return -1
+<<<<<<< Updated upstream
     row = position % row_len
     column = position//row_len
     direction = "down"
     return display_word(word, direction, row, column)
+=======
+    else:
+        position = len(puzzle) - position -1
+        row = position % row_len
+        column = position // row_len
+        direction = "down"
+        return display_word(word, direction, row, column)
+>>>>>>> Stashed changes
 
 
 def search_up(puzzle, word, row_len):
