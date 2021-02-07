@@ -52,7 +52,7 @@ def display_puzzle(string, row_len):
             _puzzle = ""
             for j in sub:
                 _puzzle = _puzzle + j
-            print(" ".join(_puzzle))
+            print("".join(_puzzle))
 
 
 def display_word(word, direction, row, column):
