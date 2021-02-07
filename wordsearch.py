@@ -191,8 +191,9 @@ def main():
 
     word = input("Enter a puzzle line: ")
     word = word.strip()
-
-    row_len = 10
+    
+    row_len = input("Enter row length:")
+    row_len = row_len.strip()
 
     if len(puzzle) == 100:
         grid = ""
