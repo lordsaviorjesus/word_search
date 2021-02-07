@@ -29,4 +29,24 @@ def split_words(string):
             
 split_words("There was a dog")
 
-            
+
+def main():
+    """
+    """
+    #Puzzle input
+    puzzle = input("Enter a puzzle: ")
+    puzzle = puzzle.strip()
+    #Words seperated by spaces
+    words = input("Enter target words: ")
+    words = words.strip()
+    #length of row
+    row_len = input("Enter length of rows: ")
+    row_len = row_len.strip()
+    display_puzzle(puzzle, row_len)
+
+
+
+    
+
+    
+#if __name__ == "__main__":
