@@ -112,7 +112,17 @@ def search_up(puzzle, word, row_len):
 
 
 def find_word(puzzle, word, row_len): #finds the word
-    
+    if search_forward(puzzle, word, row_len) != -1:
+        return (display_word(word, direction, row_len, column))
+    if search_backward(puzzle, word, row_len) != -1:
+        return (display_word(word, direction, row_len, column))
+    if search_down(puzzle, word, row_len) != -1:
+        return (display_word(word, direction, row_len, column))
+    if search_up(puzzle, word, row_len) != -1:
+        return (display_word(word, direction, row_len, column))
+    else: 
+        return (word + ": word not found")
+
     
 
 """
