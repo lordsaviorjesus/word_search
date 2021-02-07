@@ -7,7 +7,6 @@ Name: <Sameera> <Balijepalli> <and> <Augustus> <Soto>
 Cal Poly User: <sbalijep> <and> <ajsoto>
 """
 
-
 def reverse_string(string: str):
     """Function returns the reverse of an inputted string
     Args:
@@ -40,6 +39,15 @@ def transpose_string(string: str, row_len: int):
 
 
 def display_word(word, direction, row, column):
+    """Function returns the conditions of word
+    Args:
+        word(str): user input word
+        direction(str): depends on direction of puzzle 
+        row(int): row number 
+        column(int): column number 
+    Returns 
+        string: word, direction, row, column 
+    """
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
 
 
@@ -53,7 +61,7 @@ def find_word(puzzle: str, word: str, row_len: int): #finds the word
             position = _reverse.find(word)
             position = 9 - position 
             direction = "backward"
-            return (display_word(word, direction, 1, 2)) #<---need to change variables 
+            return (display_word(word, direction, 0, 2)) #<---need to change variables 
         #found DOWN
         if puzzle.find(word) == -1:
             _down = transpose_string(puzzle,row_len)
@@ -72,11 +80,12 @@ def find_word(puzzle: str, word: str, row_len: int): #finds the word
         break
 
     if puzzle.find(word) != -1:
+        #found FORWARD
         position = puzzle.find(word)
         direction = "forward"
         return (display_word(word, direction, 1, 0))
     else: 
-        return puzzle.find(word)
+        return (word + ": word not found")
     
 def display_puzzle(string, row_len): #displays puzzle
     string = transpose_string(string, row_len)
@@ -88,17 +97,26 @@ def display_puzzle(string, row_len): #displays puzzle
                 _puzzle = _puzzle + j
             print(" ".join(_puzzle))
 
-#def main():
+def main():
+    #still working on this
+    string = input("Please enter a line of text containing 100 characters: ")
+    _p = string.strip()
+    word = input("Please enter the words to be searched for in the puzzle: ")
+    _w = word.strip()
 
-"""   
+    row_len = 10
+    display_puzzle(string, row_len)
+
+
+
+ 
 if __name__ == "__main__":
-    
     print(transpose_string('abcbobxyz',3)) #FORWARD
     print(" ")
     print(find_word("abcbobxyz", "bob", 3))
 
     print(display_puzzle("abcbobxyz", 3))
-"""
+    
 
     
 
