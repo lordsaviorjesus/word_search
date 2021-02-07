@@ -29,18 +29,6 @@ def transpose_string(string: str, row_len: int):
     Returns:
         new_string(str): transposed version of inputted string
     """
-    #Hey! I changed some things:
-    """
-    new_string = ""
-    for i in range(row_len):
-        for j in range(len(string)): #what does j do here?
-            if i < len(string):
-                new_string = new_string + string[i]
-                i = i + row_len
-    return new_string
-
-    ^^^ PREVIOUS CODE ^^^
-    """
     new_string = ""
     if row_len > len(string):
         return string
@@ -49,8 +37,6 @@ def transpose_string(string: str, row_len: int):
         new_string = new_string + string[i::row_len]
         i = i + 1
     return new_string
-
-
 
 
 def display_word(word, direction, row, column):
@@ -92,7 +78,7 @@ def find_word(puzzle: str, word: str, row_len: int):
     else: 
         return puzzle.find(word)
 
-    
+"""    
 if __name__ == "__main__":
     
     print(transpose_string('abcbobxyz',3)) #FORWARD
@@ -106,7 +92,7 @@ if __name__ == "__main__":
     print(transpose_string("abcbobxyz", 3))
     print(" ")
     find_word("abcbobxyz", "boy", 3)
-    
+"""
     
 
 
