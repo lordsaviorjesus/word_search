@@ -67,22 +67,42 @@ def display_word(word, direction, row, column):
     """
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
 
+
+def search_forward(puzzle, word, row_len):
+    if puzzle.find(word) != -1:
+        column = puzzle.find(word)
+        direction = "forward"
+        return (display_word(word, direction, row_len, column))
+
+
 def search_backward(puzzle, word, row_len):
     if puzzle.find(word) == -1:
         _reverse = reverse_string(puzzle)
         column = _reverse.find(word)
-        column = 8 - column
+        column = 9 - column
         direction = "backward"
         return (display_word(word, direction, row_len, column))
+
 
 def search_down(puzzle, word, row_len):
     if puzzle.find(word) == -1:
         _down = transpose_string(puzzle, row_len) #--> need to change to row_len
         column = _down.find(word)
-        column = 8 - column
+        column =  - column
         direction = "down"
         return(display_word(word, direction, row_len, column))
-    
+
+
+def search_up(puzzle, word, row_len):
+    if puzzle.find(word) == -1:
+        _up = reverse_string(puzzle)
+        _up = transpose_string(_up, row_len)
+        column = _up.find(word)
+        column = 9 - column
+        direction = "up"
+        return (display_word(word, direction, row_len, column))
+
+
 def find_word(puzzle, word, row_len): #finds the word
     
     while puzzle.find(word) == -1:
@@ -119,15 +139,6 @@ def find_word(puzzle, word, row_len): #finds the word
         return (word + ": word not found")
 
 
-def main():
-    #still working on this
-    string = input("Please enter a line of text containing 100 characters: ")
-    _p = string.strip()
-    word = input("Please enter the words to be searched for in the puzzle: ")
-    _w = word.strip()
-
-    row_len = 10
-    display_puzzle(string, row_len)
 
 
 
