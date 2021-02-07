@@ -170,13 +170,14 @@ def find_word(puzzle, word, row_len):
     """
     if search_forward(puzzle, word, row_len) != -1:
         return search_forward(puzzle, word, row_len)
-    if search_backward(puzzle, word, row_len) != -1:
+    elif search_backward(puzzle, word, row_len) != -1:
         return search_backward(puzzle, word, row_len)
-    if search_down(puzzle, word, row_len) != -1:
+    elif search_down(puzzle, word, row_len) != -1:
         return search_down(puzzle, word, row_len)
-    if search_up(puzzle, word, row_len) != -1:
+    elif search_up(puzzle, word, row_len) != -1:
         return search_up(puzzle, word, row_len)
-    return word + ":" + " word not found"
+    else:
+        return word + ":" + " word not found"
 
 def main():
     """Function returns the final puzzle 
@@ -189,7 +190,7 @@ def main():
     puzzle = input("Enter a puzzle line: ")
     puzzle = puzzle.strip()
 
-    word = input("Enter a puzzle line: ")
+    word = input("Enter words to search: ")
     word = word.strip()
 
     row_len = 10
@@ -207,10 +208,10 @@ def main():
     print()
     word += " "
     while len(word) != 0:
-        commas = word.find(" ")
-        word = word[::commas]
+        commas = word.find(' ')
+        word = word[:commas]
         word = word[commas + 1:]
-        return find_word(puzzle, word, row_len)
+        print(find_word(puzzle, word, row_len))
 
 if __name__ == "__main__":
     main()
