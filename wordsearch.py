@@ -69,47 +69,53 @@ def display_word(word, direction, row, column):
 
 
 def search_forward(puzzle, word, row_len):
-    column = puzzle.find(word)
-    if column == -1:
+    position = puzzle.find(word)
+    if position == -1:
         return -1
     else:
-        column = row_len - column
+        row = position // row_len
+        column = position % row_len
         direction = "forward"
-        return display_word(word, direction, row_len, column)
+        return display_word(word, direction, row, column)
 
 
 def search_backward(puzzle, word, row_len):
-    _reverse = reverse_string(puzzle)
-    column = _reverse.find(word)
-    if column == -1:
+    _reverse = reverse_string(word)
+    position = puzzle.find(_reverse) 
+    if position == -1:
         return -1
     else:
-        column = column - row_len
+        column = position % row_len
+        row = position//row_len
         direction = "backward"
-        return display_word(word, direction, row_len, column)
+        return display_word(word, direction, row, column)
 
 
 def search_down(puzzle, word, row_len):
     _down = transpose_string(puzzle, row_len)
-    column = _down.find(word)
-    if column == -1:
+    position = _down.find(word) 
+    if position == -1:
         return -1
     else:
-        column = row_len - column
+        position = len(puzzle) - position -1
+        row = position%row_len
+        column = position//row_len
         direction = "down"
-        return display_word(word, direction, row_len, column)
+        return display_word(word, direction, row, column)
 
 
 def search_up(puzzle, word, row_len):
     _up = reverse_string(puzzle)
     _up = transpose_string(_up, row_len)
-    column = _up.find(word)
-    if column == -1:
+    position = _up.find(word)
+    if position == -1:
         return -1
     else:
-        column = column - row_len
+        position = len(puzzle) - position -1
+        column = position % row_len
+        row = position // row_len
         direction = "up"
-        return display_word(word, direction, row_len, column)
+        return display_word(word, direction, row, column)
 
 
 def find_word(puzzle, word, row_len): #finds the word
