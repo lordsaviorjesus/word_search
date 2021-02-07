@@ -4,24 +4,18 @@ Created on Sat Feb  6 20:16:17 2021
 
 @author: Augustus
 """
-from wordsearch import transpose_string
 
-def search_forward(puzzle, word, row_len):
-    column = puzzle.find(word)
-    if column == -1:
-        return -1
-    else:
-        my_string = transpose_string(puzzle,row_len)
-        
-        
+#Potentially simplified display_puzzle, lmk if you want to incorporate or not
 
-<<<<<<< HEAD
-        return my_string
-        
+def display_puzzle(string, row_len):
+    start = 0
+    end = row_len
+    for num in range(row_len):
+        print(string[start:end])
+        start += row_len
+        end += row_len
 
-print(search_forward("ABCDEFGHI","DEF",3))
 
-=======
 display_puzzle("qfYWkBq4Ynvlyo8WGJC5pEfSEkoCopzruyHFAici3Dj8XHYjw8JkWlLTf7nVQ"\
                "cYjCpmnrtzbM5h77NOYkZSR5oTNqOr4uob5SMcP",10)
 
@@ -36,5 +30,3 @@ def split_words(string):
             
 split_words("There was a dog")
 
-            
->>>>>>> parent of d879507... fixing
