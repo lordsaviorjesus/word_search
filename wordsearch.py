@@ -73,6 +73,7 @@ def search_forward(puzzle, word, row_len):
     if column == -1:
         return -1
     else: 
+        column = 9 - column
         direction = "forward"
         return (display_word(word, direction, row_len, column))
 
@@ -89,7 +90,7 @@ def search_backward(puzzle, word, row_len):
 
 
 def search_down(puzzle, word, row_len):
-    _down = transpose_string(puzzle, row_len) #--> need to change to row_len
+    _down = transpose_string(puzzle, row_len) 
     column = _down.find(word)
     if column == -1: 
         return -1
@@ -113,13 +114,13 @@ def search_up(puzzle, word, row_len):
 
 def find_word(puzzle, word, row_len): #finds the word
     if search_forward(puzzle, word, row_len) != -1:
-        return (display_word(word, direction, row_len, column))
-    if search_backward(puzzle, word, row_len) != -1:
-        return (display_word(word, direction, row_len, column))
-    if search_down(puzzle, word, row_len) != -1:
-        return (display_word(word, direction, row_len, column))
-    if search_up(puzzle, word, row_len) != -1:
-        return (display_word(word, direction, row_len, column))
+        return search_forward(puzzle, word, row_len)
+    elif search_backward(puzzle, word, row_len) != -1:
+        return search_backward(puzzle, word, row_len)
+    elif search_down(puzzle, word, row_len) != -1:
+        return search_down(puzzle, word, row_len)
+    elif search_up(puzzle, word, row_len) != -1:
+        return search_up(puzzle, word, row_len)
     else: 
         return (word + ": word not found")
 
@@ -139,25 +140,4 @@ def find_word(puzzle, word, row_len): #finds the word
 
 
  
-if __name__ == "__main__":
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    
+#if __name__ == "__main__":
