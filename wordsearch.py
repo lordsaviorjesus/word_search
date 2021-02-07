@@ -40,14 +40,6 @@ def transpose_string(string: str, row_len: int):
     return new_string
 
     ^^^ PREVIOUS CODE ^^^
-    This is the code we had before. I realized that I wasn't sure exactly what
-    purpose the for loop for j had, so I replaced it. Also, I might not be
-    understanding everything, but I wasn't sure what purpose the if i<len(string):
-    line served. Won't i always be less than the length of the string? essentially,
-    if we had a row length larger than the string, then we can only make one row.
-    Let me know on discord if you see any imminent problems with what I changed, but
-    I think what I changed works.
-    -Gus
     """
     new_string = ""
     if row_len > len(string):
@@ -62,40 +54,43 @@ def transpose_string(string: str, row_len: int):
 
 
 def display_word(word, direction, row, column):
-    """
-    I created this b/c it'll make the find_word function easier I think
-    """
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
 
 
 def find_word(puzzle: str, word: str, row_len: int):
     column = transpose_string(puzzle, row_len)
     
-    """Hey! I'm thinking if we put this function in a while loop and test all functions, it'll go through 
-    each if statement and then return the value instead of displaying every IF statement?s"""
+    while puzzle.find(word) == -1:
+        #found BACKWARD
+        if puzzle.find(word) == -1:
+            _reverse = reverse_string(puzzle)
+            position = _reverse.find(word)
+            position = 9 - position 
+            direction = "backward"
+            return (display_word(word, direction, 1, 2)) #<---need to change variables 
+        #found DOWN
+        if puzzle.find(word) == -1:
+            _down = transpose_string(puzzle,row_len)
+            position = puzzle.find(word)
+            position = 9 - position
+            direction = "down"
+            return (display_word(word, direction, 0, 1)) #<---need to change to variables 
+        #found UP
+        if puzzle.find(word) == -1:
+            _up = transpose_string(puzzle, row_len)
+            _up = reverse_string(_up)
+            position = _up.find(word)
+            position = 9 - position
+            direction = "up"
+            return (display_word(word, direction, 1, 2))
+        break
 
-    #found FORWARD:
     if puzzle.find(word) != -1:
         position = puzzle.find(word)
-        print(display_word(word,"forward", 1,0)) # <---need to change to variables
-        
-    #found BACKWARD:
-    if puzzle.find(word) == -1:
-        _reverse = reverse_string(puzzle)
-        position = _reverse.find(word)
-        position = 9 - position #I think this converts it back to original position in string?
-        print(display_word(word, "backward", 1, 2)) #<---need to change variables 
-    
-    #found DOWN:
-    if puzzle.find(word) == -1:
-         _down = transpose_string(puzzle,row_len)
-         position = puzzle.find(word)
-         position = 9 - position
-         print(display_word(word, "down", 0, 1)) #<---need to change to variables 
-        
-    #found UP:
-
-    #Value not found: 
+        direction = "forward"
+        return (display_word(word, direction, 1, 0))
+    else: 
+        return puzzle.find(word)
 
     
 if __name__ == "__main__":
