@@ -88,9 +88,9 @@ def display_puzzle(string, row_len): #displays puzzle
                 _puzzle = _puzzle + j
             print(" ".join(_puzzle))
 
-def main():
-    
-    
+#def main():
+
+"""   
 if __name__ == "__main__":
     
     print(transpose_string('abcbobxyz',3)) #FORWARD
@@ -98,7 +98,7 @@ if __name__ == "__main__":
     print(find_word("abcbobxyz", "bob", 3))
 
     print(display_puzzle("abcbobxyz", 3))
-
+"""
 
     
 
