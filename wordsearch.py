@@ -43,7 +43,7 @@ def display_word(word, direction, row, column):
     return f"{word.upper()}: ({direction.upper()}) row: {row} column: {column}"
 
 
-def find_word(puzzle: str, word: str, row_len: int):
+def find_word(puzzle: str, word: str, row_len: int): #finds the word
     column = transpose_string(puzzle, row_len)
     
     while puzzle.find(word) == -1:
@@ -77,22 +77,29 @@ def find_word(puzzle: str, word: str, row_len: int):
         return (display_word(word, direction, 1, 0))
     else: 
         return puzzle.find(word)
+    
+def display_puzzle(string, row_len): #displays puzzle
+    string = transpose_string(string, row_len)
+    for i in range(len(string)):
+        if i % row_len == 0:
+            sub = string[i:i+row_len]
+            _puzzle = ""
+            for j in sub:
+                _puzzle = _puzzle + j
+            print(" ".join(_puzzle))
 
-"""    
+def main():
+    
+    
 if __name__ == "__main__":
     
     print(transpose_string('abcbobxyz',3)) #FORWARD
     print(" ")
-    find_word("abcbobxyz", "bob", 3)
+    print(find_word("abcbobxyz", "bob", 3))
 
-    print(transpose_string('derxyzgit',3))#BACKWARD
-    print(" ")
-    find_word('derxyzgit',"red",3)
+    print(display_puzzle("abcbobxyz", 3))
 
-    print(transpose_string("abcbobxyz", 3))
-    print(" ")
-    find_word("abcbobxyz", "boy", 3)
-"""
+
     
 
 
