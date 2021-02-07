@@ -84,7 +84,7 @@ def search_backward(puzzle, word, row_len):
     if column == -1:
         return -1
     else:
-        column = row_len - column
+        column = column - row_len
         direction = "backward"
         return display_word(word, direction, row_len, column)
 
@@ -107,7 +107,7 @@ def search_up(puzzle, word, row_len):
     if column == -1:
         return -1
     else:
-        column = row_len - column
+        column = column - row_len
         direction = "up"
         return display_word(word, direction, row_len, column)
 
