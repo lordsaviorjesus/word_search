@@ -69,35 +69,43 @@ def display_word(word, direction, row, column):
 
 
 def search_forward(puzzle, word, row_len):
-    if puzzle.find(word) != -1:
-        column = puzzle.find(word)
+    column = puzzle.find(word)
+    if column == -1:
+        return -1
+    else: 
         direction = "forward"
         return (display_word(word, direction, row_len, column))
 
 
 def search_backward(puzzle, word, row_len):
-    if puzzle.find(word) != -1:
-        _reverse = reverse_string(puzzle)
-        column = _reverse.find(word)
+    _reverse = reverse_string(puzzle)
+    column = _reverse.find(word)
+    if column == -1:
+        return -1
+    else:
         column = 9 - column
         direction = "backward"
         return (display_word(word, direction, row_len, column))
 
 
 def search_down(puzzle, word, row_len):
-    if puzzle.find(word) != -1:
-        _down = transpose_string(puzzle, row_len) #--> need to change to row_len
-        column = _down.find(word)
-        column =  - column
+    _down = transpose_string(puzzle, row_len) #--> need to change to row_len
+    column = _down.find(word)
+    if column == -1: 
+        return -1
+    else:
+        column =  9 - column
         direction = "down"
         return(display_word(word, direction, row_len, column))
 
 
 def search_up(puzzle, word, row_len):
-    if puzzle.find(word) == -1:
-        _up = reverse_string(puzzle)
-        _up = transpose_string(_up, row_len)
-        column = _up.find(word)
+    _up = reverse_string(puzzle)
+    _up = transpose_string(_up, row_len)
+    column = _up.find(word)
+    if column == -1:
+        return -1
+    else:
         column = 9 - column
         direction = "up"
         return (display_word(word, direction, row_len, column))
@@ -107,6 +115,7 @@ def find_word(puzzle, word, row_len): #finds the word
     
     
 
+"""
     if puzzle.find(word) != -1:
         #found FORWARD
         position = puzzle.find(word)
@@ -114,18 +123,14 @@ def find_word(puzzle, word, row_len): #finds the word
         return (display_word(word, direction, 1, position))
     else: 
         return (word + ": word not found")
-
+"""
 
 
 
 
  
 if __name__ == "__main__":
-    print(transpose_string('abcbobxyz',3)) #FORWARD
-    print(" ")
-    print(find_word("abcbobxyz", "bob", 3))
 
-    print(display_puzzle("abcbobxyz", 3))
     
 
     
