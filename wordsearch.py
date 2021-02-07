@@ -167,6 +167,13 @@ def find_word(puzzle, word, row_len):
     return word + ": word not found"
 
 def main():
+    """Function returns the final puzzle 
+    Args:
+        puzzle(str): inputted 100 characters 
+        word(str): words to find
+    Returns: 
+        str: result of word search
+    """
     puzzle = input("Enter a puzzle line: ")
     puzzle = puzzle.strip()
 
@@ -177,7 +184,6 @@ def main():
 
     if len(puzzle) == 100:
         return display_puzzle(puzzle, row_len)
-    
     word += " "
     while len(word) != 0:
         commas = word.find(" ")
@@ -187,4 +193,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
