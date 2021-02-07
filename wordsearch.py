@@ -100,19 +100,11 @@ def search_backward(puzzle, word, row_len):
     position = _reverse.find(word)
     if position == -1:
         return -1
-<<<<<<< Updated upstream
     position = len(puzzle) - position - 1
     column = position % row_len
     row = position//row_len
     direction = "backward"
     return display_word(word, direction, row, column)
-=======
-    else:
-        column = position % row_len
-        row = position // row_len
-        direction = "backward"
-        return display_word(word, direction, row, column)
->>>>>>> Stashed changes
 
 
 def search_down(puzzle, word, row_len):
@@ -128,19 +120,10 @@ def search_down(puzzle, word, row_len):
     position = _down.find(word)
     if position == -1:
         return -1
-<<<<<<< Updated upstream
     row = position % row_len
     column = position//row_len
     direction = "down"
     return display_word(word, direction, row, column)
-=======
-    else:
-        position = len(puzzle) - position -1
-        row = position % row_len
-        column = position // row_len
-        direction = "down"
-        return display_word(word, direction, row, column)
->>>>>>> Stashed changes
 
 
 def search_up(puzzle, word, row_len):
@@ -182,32 +165,3 @@ def find_word(puzzle, word, row_len):
     if search_up(puzzle, word, row_len) != -1:
         return search_up(puzzle, word, row_len)
     return word + ": word not found"
-
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
-
-def main():
-    """
-    """
-    #Puzzle input
-    puzzle = input("Enter a puzzle: ")
-    puzzle = puzzle.strip()
-    #Words seperated by spaces
-    words = input("Enter target words: ")
-    words = words.strip()
-    #length of row
-    row_len = input("Enter length of rows: ")
-    row_len = row_len.strip()
-    display_puzzle(puzzle, row_len)
-    
-    for
-    find_word(puzzle,words,row_len)
-    
-    
-
-    
-#if __name__ == "__main__":
->>>>>>> Stashed changes
->>>>>>> parent of d879507... fixing
