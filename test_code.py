@@ -1,32 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-Misc test code
+Created on Sat Feb  6 20:16:17 2021
+
+@author: Augustus
 """
+from wordsearch import transpose_string
 
-
-#Potentially simplified display_puzzle, lmk if you want to incorporate or not
-
-def display_puzzle(string, row_len):
-    start = 0
-    end = row_len
-    for num in range(row_len):
-        print(string[start:end])
-        start += row_len
-        end += row_len
+def search_forward(puzzle, word, row_len):
+    column = puzzle.find(word)
+    if column == -1:
+        return -1
+    else:
+        my_string = transpose_string(puzzle,row_len)
+        
         
 
-display_puzzle("qfYWkBq4Ynvlyo8WGJC5pEfSEkoCopzruyHFAici3Dj8XHYjw8JkWlLTf7nVQ"\
-               "cYjCpmnrtzbM5h77NOYkZSR5oTNqOr4uob5SMcP",10)
+        return my_string
+        
 
-print("")
+print(search_forward("ABCDEFGHI","DEF",3))
 
-def split_words(string):
-
-    for position in range(len(string)):
-        if string[position] == " ":
-            print("Hello")
-
-            
-split_words("There was a dog")
-
-            
