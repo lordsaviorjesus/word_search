@@ -73,7 +73,7 @@ def search_forward(puzzle, word, row_len):
     if column == -1:
         return -1
     else: 
-        column = 9 - column
+        column = row_len - column
         direction = "forward"
         return (display_word(word, direction, row_len, column))
 
