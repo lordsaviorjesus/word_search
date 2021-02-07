@@ -183,7 +183,16 @@ def main():
     row_len = 10
 
     if len(puzzle) == 100:
-        return display_puzzle(puzzle, row_len)
+        grid = ""
+        for x in range(0,100):
+            column = x%10
+            row = x//10
+            string = puzzle[x]
+            grid += string
+            if len(grid) == 10:
+                print(grid)
+                grid = ""
+    print()
     word += " "
     while len(word) != 0:
         commas = word.find(" ")
