@@ -38,7 +38,7 @@ def transpose_string(string: str, row_len: int):
     return new_string
 
 
-def display_puzzle(string, row_len):
+def display_puzzle(puzzle, row_len):
     """Function displays puzzle in 10x10 grid
     Args:
         string(str): inputted string
@@ -46,10 +46,10 @@ def display_puzzle(string, row_len):
     Returns:
         _puzzle(string): characters shifted around in 10x10 grid
     """
-    string = transpose_string(string, row_len)
-    for i in range(len(string)):
+    puzzle = transpose_string(puzzle, row_len)
+    for i in range(len(puzzle)):
         if i % row_len == 0:
-            sub = string[i:i+row_len]
+            sub = puzzle[i:i+row_len]
             _puzzle = ""
             for j in sub:
                 _puzzle = _puzzle + j
@@ -165,3 +165,26 @@ def find_word(puzzle, word, row_len):
     if search_up(puzzle, word, row_len) != -1:
         return search_up(puzzle, word, row_len)
     return word + ": word not found"
+
+def main():
+    puzzle = input("Enter a puzzle line: ")
+    puzzle = puzzle.strip()
+
+    word = input("Enter a puzzle line: ")
+    word = word.strip()
+
+    row_len = 10
+
+    if len(puzzle) == 100:
+        return display_puzzle(puzzle, row_len)
+    
+    word += " "
+    while len(word) != 0:
+        commas = word.find(" ")
+        word = word[::commas]
+        word = word[commas + 1:]
+        return find_word(puzzle, word, row_len)
+
+if __name__ == "__main__":
+    main()
+
