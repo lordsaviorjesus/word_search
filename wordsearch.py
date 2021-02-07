@@ -84,7 +84,7 @@ def search_forward(puzzle, word, row_len):
     row = position // row_len
     column = position % row_len
     direction = "forward"
-    return display_word(word, direction, row, column)
+    print (display_word(word, direction, row, column))
 
 
 def search_backward(puzzle, word, row_len):
@@ -156,6 +156,34 @@ def find_word(puzzle, word, row_len):
     Returns:
         display_word(str): search result
     """
+    """
+    if puzzle.find(word) != -1:
+        position = puzzle.find(word)
+        column = position % row_len
+        row = position // row_len
+        direction = "forward"
+        return display_word(word, direction, row, column)
+    elif reverse_string(puzzle).find(word) != -1:
+        position = len(puzzle) - reverse_string(puzzle).find(word) - 1
+        column = position % row_len
+        row = position // row_len
+        direction = "backward"
+        return display_word(word, direction, row, column)
+    elif transpose_string(puzzle, row_len).find(word) != -1:
+        position = transpose_string(puzzle,row_len).find(word)
+        column = position // row_len
+        row = position % row_len
+        direction = "down"
+        return display_word(word, direction, row, column)
+    elif reverse_string(transpose_string(puzzle,row_len)).find(word) != -1:
+        position = len(puzzle) - reverse_string(transpose_string(puzzle,row_len)).find(word) - 1
+        column = position // row_len
+        row = position % row_len
+        direction = "up"
+        return display_word(word, direction, row, column)
+    else: 
+        return word + ":" + " word not found"
+    """
     if search_forward(puzzle, word, row_len) != -1:
         return search_forward(puzzle, word, row_len)
     if search_backward(puzzle, word, row_len) != -1:
@@ -164,7 +192,8 @@ def find_word(puzzle, word, row_len):
         return search_down(puzzle, word, row_len)
     if search_up(puzzle, word, row_len) != -1:
         return search_up(puzzle, word, row_len)
-    return word + ": word not found"
+    else:
+        return word + ":" + " word not found"
 
 def main():
     """Function returns the final puzzle 
