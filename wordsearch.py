@@ -73,6 +73,8 @@ def search_forward(puzzle, word, row_len):
         column = puzzle.find(word)
         direction = "forward"
         return (display_word(word, direction, row_len, column))
+    else:
+        return -1
 
 
 def search_backward(puzzle, word, row_len):
@@ -105,30 +107,7 @@ def search_up(puzzle, word, row_len):
 
 def find_word(puzzle, word, row_len): #finds the word
     
-    while puzzle.find(word) == -1:
-        #found BACKWARD
-        if puzzle.find(word) == -1:
-            _reverse = reverse_string(puzzle)
-            position = _reverse.find(word)
-            position = 9 - position 
-            direction = "backward"
-            return (display_word(word, direction, 0, position)) #<---need to change variables 
-        #found DOWN
-        if puzzle.find(word) == -1:
-            _down = transpose_string(puzzle,row_len)
-            position = puzzle.find(word)
-            position = 9 - position
-            direction = "down"
-            return (display_word(word, direction, 0, 1)) #<---need to change to variables 
-        #found UP
-        if puzzle.find(word) == -1:
-            _up = transpose_string(puzzle, row_len)
-            _up = reverse_string(_up)
-            position = _up.find(word)
-            position = 9 - position
-            direction = "up"
-            return (display_word(word, direction, 1, 2))
-        break
+    
 
     if puzzle.find(word) != -1:
         #found FORWARD
