@@ -5,6 +5,21 @@ Created on Sat Feb  6 20:16:17 2021
 @author: Augustus
 """
 
+def main():
+    """
+    """
+    #Puzzle input
+    puzzle = input("Enter a puzzle: ")
+    puzzle = puzzle.strip()
+    #Words seperated by spaces
+    words = input("Enter target words: ")
+    words = words.strip()
+    #length of row
+    row_len = input("Enter length of rows: ")
+    row_len = row_len.strip()
+    display_puzzle(puzzle, row_len)
+    
+    
 #Potentially simplified display_puzzle, lmk if you want to incorporate or not
 
 def display_puzzle(string, row_len):
