@@ -70,13 +70,13 @@ def display_word(word, direction, row, column):
 
 
 def search_forward(puzzle, word, row_len):
-    """Function checks for word in puzzle 
-    Args: 
-        puzzle(str): inputted puzzle 
-        word(str): word you're searching for 
-        row_len(int): length of the row 
-    Returns: 
-        display_word(str): search result 
+    """Function checks for word in puzzle
+    Args:
+        puzzle(str): inputted puzzle
+        word(str): word you're searching for
+        row_len(int): length of the row
+    Returns:
+        display_word(str): search result
     """
     position = puzzle.find(word)
     if position == -1:
@@ -88,13 +88,13 @@ def search_forward(puzzle, word, row_len):
 
 
 def search_backward(puzzle, word, row_len):
-    """Function checks for word in puzzle 
-    Args: 
-        puzzle(str): inputted puzzle 
-        word(str): word you're searching for 
-        row_len(int): length of the row 
-    Returns: 
-        display_word(str): search result 
+    """Function checks for word in puzzle
+    Args:
+        puzzle(str): inputted puzzle
+        word(str): word you're searching for
+        row_len(int): length of the row
+    Returns:
+        display_word(str): search result
     """
     _reverse = reverse_string(puzzle)
     position = _reverse.find(word)
@@ -108,13 +108,13 @@ def search_backward(puzzle, word, row_len):
 
 
 def search_down(puzzle, word, row_len):
-    """Function checks for word in puzzle 
-    Args: 
-        puzzle(str): inputted puzzle 
-        word(str): word you're searching for 
-        row_len(int): length of the row 
-    Returns: 
-        display_word(str): search result 
+    """Function checks for word in puzzle
+    Args:
+        puzzle(str): inputted puzzle
+        word(str): word you're searching for
+        row_len(int): length of the row
+    Returns:
+        display_word(str): search result
     """
     _down = transpose_string(puzzle, row_len)
     position = _down.find(word)
@@ -127,13 +127,13 @@ def search_down(puzzle, word, row_len):
 
 
 def search_up(puzzle, word, row_len):
-    """Function checks for word in puzzle 
-    Args: 
-        puzzle(str): inputted puzzle 
-        word(str): word you're searching for 
-        row_len(int): length of the row 
-    Returns: 
-        display_word(str): search result 
+    """Function checks for word in puzzle
+    Args:
+        puzzle(str): inputted puzzle
+        word(str): word you're searching for
+        row_len(int): length of the row
+    Returns:
+        display_word(str): search result
     """
     _up = transpose_string(puzzle, row_len)
     _up = reverse_string(_up)
@@ -147,7 +147,15 @@ def search_up(puzzle, word, row_len):
     return display_word(word, direction, row, column)
 
 
-def find_word(puzzle, word, row_len): #finds the word
+def find_word(puzzle, word, row_len):
+    """Function print the search result
+    Args:
+        puzzle(str): inputted puzzle
+        word(str): word you're searching for
+        row_len(int): length of the row
+    Returns:
+        display_word(str): search result
+    """
     if search_forward(puzzle, word, row_len) != -1:
         return search_forward(puzzle, word, row_len)
     if search_backward(puzzle, word, row_len) != -1:
@@ -156,7 +164,4 @@ def find_word(puzzle, word, row_len): #finds the word
         return search_down(puzzle, word, row_len)
     if search_up(puzzle, word, row_len) != -1:
         return search_up(puzzle, word, row_len)
-    else:
-        return word + ": word not found"
-
-#if __name__ == "__main__":
+    return word + ": word not found"
