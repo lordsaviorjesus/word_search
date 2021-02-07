@@ -15,8 +15,26 @@ def search_forward(puzzle, word, row_len):
         
         
 
+<<<<<<< HEAD
         return my_string
         
 
 print(search_forward("ABCDEFGHI","DEF",3))
 
+=======
+display_puzzle("qfYWkBq4Ynvlyo8WGJC5pEfSEkoCopzruyHFAici3Dj8XHYjw8JkWlLTf7nVQ"\
+               "cYjCpmnrtzbM5h77NOYkZSR5oTNqOr4uob5SMcP",10)
+
+print("")
+
+def split_words(string):
+
+    for position in range(len(string)):
+        if string[position] == " ":
+            print("Hello")
+
+            
+split_words("There was a dog")
+
+            
+>>>>>>> parent of d879507... fixing
