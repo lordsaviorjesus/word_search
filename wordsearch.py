@@ -132,7 +132,7 @@ def main():
     words = words.strip()
 
     display_puzzle(puzzle, 10)
-    print(" ")
+    print("")
     words += " "
     while len(words) != 0:
         blank = words.find(' ')
