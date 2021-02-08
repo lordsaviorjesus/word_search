@@ -100,6 +100,8 @@ def find_word(puzzle, word, row_len):
     else:
         return word + ":" + " word not found"
 
+
+#displays the puzzle in 10x10 grid
 def display_puzzle(puzzle, row_len):
     """Function displays puzzle in 10x10 grid
     Args:
