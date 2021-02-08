@@ -78,21 +78,50 @@ def find_word(puzzle, word, row_len):
     down = transpose_string(puzzle, row_len)
     _up = reverse_string(down)
 
-    #Searching forwards
-    #This case 
+    #Searching forward
     if puzzle.find(word) != -1:
-        string1 = ""
-        value = ""
+
+        #Initializing variables
+        string1 = "" 
+        value = 0
         i = 0
+
+        #Consider example: find_word('ABCDEFGHI','DEF',3)
         while i < (len(puzzle)):
-            string1 = puzzle[i:i + row_len]
+            #While i is less than 9:
+            """
+            First, we assign string1 to the puzzle string from position i to
+            position i + row_len (from 0 to 3 in example). We then increase i
+            by the row_len. We do this because we're searching through each
+            row individually to find the word, that way we can return the
+            specific row where the word is found if we find a word.
+            """
+            string1 = puzzle[i : i + row_len]
             value = string1.find(word)
+            #Here, if .find() finds the word, we increment it by 1 and break
+            #from the loop. This does.....(what does this do again?)
             if value != -1:
                 value = value + i
                 break
             i = i + row_len
+
+        #After the while loop, if value == -1 still, then word not found
         if value == -1:
             return word + ":" + " word not found"
+
+        """
+        Here we define position so this is more readable. In our example, we
+        find 'DEF' at  position 3. Integer dividing our position 3 by our row
+        length 3 gives us 1, which is the current row we are in. Modulating
+        our position 3 by our row_len 3 gives us 0, which is the current column
+        'DEF' is located in the 3 x 3 matrix for this example.
+        
+                                    column 0
+                                    v      
+                                    ABC
+                                    DEF <-- row 1
+                                    GHI
+        """
         position = value
         row = position // row_len
         column = position % row_len
