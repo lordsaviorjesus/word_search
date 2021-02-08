@@ -196,17 +196,6 @@ def main():
     row_len = input("Enter row length:")
     row_len = row_len.strip()
 
-    if len(puzzle) == 100:
-        grid = ""
-        for _x in range(0,100):
-            column = _x%10
-            row = _x//10
-            string = puzzle[_x]
-            grid += string
-            if len(grid) == 10:
-                print(grid)
-                grid = ""
-    print()
     word += " "
     while len(word) != 0:
         commas = word.find(" ")
