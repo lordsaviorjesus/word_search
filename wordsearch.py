@@ -101,6 +101,8 @@ def find_word(puzzle, word, row_len):
             + str(column)
     return word + ":" + " word not found"
 
+
+#displays the puzzle in 10x10 grid
 def display_puzzle(puzzle, row_len):
     """Function displays puzzle in 10x10 grid
     Args:
@@ -132,7 +134,7 @@ def main():
     words = words.strip()
 
     display_puzzle(puzzle, 10)
-    print(" ")
+    print("")
     words += " "
     while len(words) != 0:
         blank = words.find(' ')
