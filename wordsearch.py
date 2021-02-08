@@ -37,9 +37,6 @@ def transpose_string(string: str, row_len: int):
     return new_string
 
 
-"""Hey! i reached that we needed to write more test cases if we had more functions so I put everything here instead within find_word to save us 
-    the extra work! lmk if that's okay with you - sameera
-"""
 def find_word(puzzle, word, row_len):
     """Function print the search result
         Args:
@@ -107,11 +104,11 @@ def display_puzzle(puzzle, row_len):
 
 
 def main():
-    """Function returns the final puzzle 
+    """Function returns the final puzzle
     Args:
-        puzzle(str): inputted 100 characters 
+        puzzle(str): inputted 100 characters
         word(str): words to find
-    Returns: 
+    Returns:
         str: result of word search
     """
     puzzle = input("Enter a puzzle line: ")
@@ -119,15 +116,15 @@ def main():
 
     words = input("Enter words to search: \n\n")
     words = words.strip()
-    
-    print(display_puzzle(puzzle, 10))
+
+    display_puzzle(puzzle, 10)
+    print(" ")
     words += " "
     while len(words) != 0:
         blank = words.find(' ')
         word = words[:blank]
         words = words[blank + 1:]
         print(find_word(puzzle, word, 10))
-
 
 if __name__ == "__main__":
     main()
