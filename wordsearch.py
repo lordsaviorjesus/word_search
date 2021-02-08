@@ -128,5 +128,6 @@ def main():
         words = words[blank + 1:]
         print(find_word(puzzle, word, 10))
 
+
 if __name__ == "__main__":
     main()
