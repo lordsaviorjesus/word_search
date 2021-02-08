@@ -120,7 +120,7 @@ def main():
     words = input("Enter words to search: \n\n")
     words = words.strip()
     
-    display_puzzle(puzzle, 10)
+    print(display_puzzle(puzzle, 10))
     words += " "
     while len(words) != 0:
         blank = words.find(' ')
