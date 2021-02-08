@@ -14,7 +14,8 @@ Cal Poly User: <sbalijep> <and> <ajsoto>
 
 
 def reverse_string(string: str):
-    """Function returns the reverse of an inputted string.
+    """
+    Function returns the reverse of an inputted string.
 
     Args:
         string(str): string of characters.
@@ -35,23 +36,41 @@ def transpose_string(string: str, row_len: int):
         new_string(str): transposed version of inputted string.
     """
     new_string = ""
-
-    if row_len > len(string): #accounts for case where row length is too small
+    #accounts for case where row length is too small
+    if row_len > len(string):
         return string
+    
+    #To understand this, take this example: string = "ABCDEFGHI" row_len = 3
     for i in range(row_len):
+        """
+            Here, we're simply starting at i and taking a step size equal to our
+        row_len in 'string'; we then add this to new_string. Starting at i = 0 
+        in our example, we get string[0] == 'A', string[3] == 'D', and 
+        string[6] == 'G', which makes 'ADG', from line 55.
+            At the end of the for loop, we increase i by one so we repeat this
+        process adding indexes 1,4,7 ('BEH') and 2,5,8 ('CFI') to new_string. 
+        This gives us our transposed string.
+
+        (Note: You can uncomment the print statements to see this work)
+        """
         new_string = new_string + string[i::row_len]
         i = i + 1
+        #print(new_string)
+        #print("loop " + str(i))
+        #print("")
     return new_string
 
-
 def find_word(puzzle, word, row_len):
-    """Function print the search result
-        Args:
-            puzzle(str): inputted puzzle
-            word(str): word you're searching for
-            row_len(int): length of the row
-        Returns:
-            display_word(str): search result
+    """
+    Function print the search result
+
+    Args:
+        puzzle(str): inputted puzzle
+        word(str): word you're searching for
+        row_len(int): length of the row
+
+    Returns:
+        display_word(str): search result
     """
     #Variable definitions
     puzzle_len = len(puzzle)
@@ -60,6 +79,7 @@ def find_word(puzzle, word, row_len):
     _up = reverse_string(down)
 
     #Searching forwards
+    #This case 
     if puzzle.find(word) != -1:
         string1 = ""
         value = ""
@@ -79,6 +99,7 @@ def find_word(puzzle, word, row_len):
         return word + ":" + " (FORWARD)" + " row: " + str(row) + " column: " \
             + str(column)
 
+    #Searching backwards
     if backwards.find(word) != -1:
         position = puzzle_len - backwards.find(word) - 1
         row = position // row_len
@@ -86,6 +107,7 @@ def find_word(puzzle, word, row_len):
         return word + ":" + " (BACKWARD)" + " row: " + str(row) + " column: "\
             + str(column)
 
+    #Searching down
     if down.find(word) != -1:
         position = down.find(word)
         column = position // row_len
@@ -93,6 +115,7 @@ def find_word(puzzle, word, row_len):
         return word + ":" + " (DOWN)" + " row: " + str(row) + " column: " \
             + str(column)
 
+    #Searching up
     if _up.find(word) != -1:
         position = puzzle_len - _up.find(word) - 1
         row = position % row_len
