@@ -14,27 +14,29 @@ Cal Poly User: <sbalijep> <and> <ajsoto>
 
 
 def reverse_string(string: str):
-    """Function returns the reverse of an inputted string
+    """Function returns the reverse of an inputted string.
+
     Args:
-        string(str): string of characters
+        string(str): string of characters.
+
     Returns:
-        _reverse(str): the reverse of inputted string
+        string[::-1]: the reverse of inputted string.
     """
-    _reverse = ""
-    for _x in string:
-        _reverse = _x + _reverse
-    return _reverse
+    return string[::-1] #Neat little trick!
 
 def transpose_string(string: str, row_len: int):
     """Function returns the transposed version of string
+
     Args:
-        string(str): inputted string
-        row_len(int): assumed integer of row length
+        string(str): inputted string.
+        row_len(int): assumed integer of row length.
+
     Returns:
-        new_string(str): transposed version of inputted string
+        new_string(str): transposed version of inputted string.
     """
     new_string = ""
-    if row_len > len(string):
+
+    if row_len > len(string): #accounts for case where row length is too small
         return string
     for i in range(row_len):
         new_string = new_string + string[i::row_len]
@@ -116,7 +118,6 @@ def display_puzzle(puzzle, row_len):
             for j in sub:
                 _puzzle = _puzzle + j
             print("".join(_puzzle))
-
 
 def main():
     """Function returns the final puzzle
