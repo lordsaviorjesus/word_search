@@ -1,9 +1,14 @@
 """
-Contains solutions to wordsearch
+Wordsearch program that finds a word in a 10 x 10 matrix.
+
 CPE101
+
 Section <05>
+
 Project 2, Part 2
+
 Name: <Sameera> <Balijepalli> <and> <Augustus> <Soto>
+
 Cal Poly User: <sbalijep> <and> <ajsoto>
 """
 
@@ -46,11 +51,13 @@ def find_word(puzzle, word, row_len):
         Returns:
             display_word(str): search result
     """
+    #Variable definitions
     puzzle_len = len(puzzle)
     backwards = reverse_string(puzzle)
     down = transpose_string(puzzle, row_len)
     _up = reverse_string(down)
 
+    #Searching forwards
     if puzzle.find(word) != -1:
         string1 = ""
         value = ""
@@ -67,22 +74,29 @@ def find_word(puzzle, word, row_len):
         position = value
         row = position // row_len
         column = position % row_len
-        return word + ":" + " (FORWARD)" + " row: " + str(row) + " column: " + str(column)
+        return word + ":" + " (FORWARD)" + " row: " + str(row) + " column: " \
+            + str(column)
+
     if backwards.find(word) != -1:
         position = puzzle_len - backwards.find(word) - 1
         row = position // row_len
         column = position % row_len
-        return word + ":" + " (BACKWARD)" + " row: " + str(row) + " column: " + str(column)
+        return word + ":" + " (BACKWARD)" + " row: " + str(row) + " column: "\
+            + str(column)
+
     if down.find(word) != -1:
         position = down.find(word)
         column = position // row_len
         row = position % row_len
-        return word + ":" + " (DOWN)" + " row: " + str(row) + " column: " + str(column)
+        return word + ":" + " (DOWN)" + " row: " + str(row) + " column: " \
+            + str(column)
+
     if _up.find(word) != -1:
         position = puzzle_len - _up.find(word) - 1
         row = position % row_len
         column = position // row_len
-        return word + ":" + " (UP)" + " row: " + str(row) + " column: " + str(column)
+        return word + ":" + " (UP)" + " row: " + str(row) + " column: " \
+            + str(column)
     else:
         return word + ":" + " word not found"
 
