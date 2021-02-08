@@ -36,6 +36,10 @@ def transpose_string(string: str, row_len: int):
         i = i + 1
     return new_string
 
+
+"""Hey! i reached that we needed to write more test cases if we had more functions so I put everything here instead within find_word to save us 
+    the extra work! lmk if that's okay with you - sameera
+"""
 def find_word(puzzle, word, row_len):
     """Function print the search result
         Args:
@@ -85,6 +89,22 @@ def find_word(puzzle, word, row_len):
     else:
         return word + ":" + " word not found"
 
+def display_puzzle(puzzle, row_len):
+    """Function displays puzzle in 10x10 grid
+    Args:
+        string(str): inputted string
+        row_len: number of characters per row
+    Returns:
+        _puzzle(string): characters shifted around in 10x10 grid
+    """
+    for i in range(len(puzzle)):
+        if i % row_len == 0:
+            sub = puzzle[i:i+row_len]
+            _puzzle = ""
+            for j in sub:
+                _puzzle = _puzzle + j
+            print("".join(_puzzle))
+
 
 def main():
     """Function returns the final puzzle 
@@ -97,29 +117,16 @@ def main():
     puzzle = input("Enter a puzzle line: ")
     puzzle = puzzle.strip()
 
-    word = input("Enter words to search: ")
-    word = word.strip()
+    words = input("Enter words to search: \n\n")
+    words = words.strip()
     
-    row_len = input("Enter row length:")
-    row_len = row_len.strip()
-
-    if len(puzzle) == 100:
-        grid = ""
-        for _x in range(0,100):
-            column = _x%10
-            row = _x//10
-            string = puzzle[_x]
-            grid += string
-            if len(grid) == 10:
-                print(grid)
-                grid = ""
-    print()
-    word += " "
-    while len(word) != 0:
-        commas = word.find(" ")
-        word = word[:commas]
-        word = word[commas + 1:]
-        print(find_word(puzzle, word, row_len))
+    display_puzzle(puzzle, 10)
+    words += " "
+    while len(words) != 0:
+        blank = words.find(' ')
+        word = words[:blank]
+        words = words[blank + 1:]
+        print(find_word(puzzle, word, 10))
 
 if __name__ == "__main__":
     main()
