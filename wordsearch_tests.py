@@ -17,7 +17,7 @@ from wordsearch import transpose_string
 from wordsearch import display_puzzle
 from wordsearch import find_word
 
-#String for find_word assertions. Words are: Augustus Sameera word search
+#String for find_word assertions. Words are: Augustus Sameera word search bbb
 string_1 = "YhWMA4lUdPGvsjuqSif9nxIEgSBrH1lCGWuLXVacy93zsq7TreTKTUtfM0eJword"\
     "u3aOeh89VDsB99mghcraescoas1915q9bFSr"
 
@@ -47,6 +47,7 @@ if __name__ == "__main__":
         'column: 0'
     assert find_word(string_1, "search", 10) == 'search: (BACKWARD) row: 8 '\
         'column: 5'
+    assert find_word(string_1, "bbb", 10) == 'bbb: word not found'
 
 
 
