@@ -97,8 +97,7 @@ def find_word(puzzle, word, row_len):
         column = position // row_len
         return word + ":" + " (UP)" + " row: " + str(row) + " column: " \
             + str(column)
-    else:
-        return word + ":" + " word not found"
+    return word + ":" + " word not found"
 
 
 #displays the puzzle in 10x10 grid
