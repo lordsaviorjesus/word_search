@@ -26,7 +26,8 @@ def reverse_string(string: str):
     return string[::-1] #Neat little trick!
 
 def transpose_string(string: str, row_len: int):
-    """Function returns the transposed version of string
+    """
+    Function returns the transposed version of string
 
     Args:
         string(str): inputted string.
@@ -174,34 +175,39 @@ def display_puzzle(puzzle, row_len):
     Returns:
         10x10 puzzle (string): characters shifted around in 10x10 grid
     """
-    start = 0
-    end = row_len
-    for num in range(row_len):
+    start = 0 #start position in string index
+    end = row_len #end position in string index
+    for num in range(row_len): #row length determines how many rows we print
         print(puzzle[start:end])
         start += row_len
         end += row_len
-
+    #We go through each row of 10 chars and print that line. 0-10, 10-20, etc.
 
 
 def main():
-    """Function returns the final puzzle
+    """
+    Function returns the final puzzle
+    
     Args:
-
         puzzle(str): inputted 100 characters
         word(str): words to find
 
     Returns:
         str: result of word search
     """
-
+    #Getting puzzle from user
     puzzle = input("Enter a puzzle line: ")
     puzzle = puzzle.strip()
-
+    #Getting words from user
     words = input("Enter words to search: \n\n")
     words = words.strip()
-
+    
+    #Displaying the puzzle to user
     display_puzzle(puzzle, 10)
     print("")
+    """
+    Explanation
+    """
     words += " "
     while len(words) != 0:
         blank = words.find(' ')
