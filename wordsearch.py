@@ -164,30 +164,24 @@ def find_word(puzzle, word, row_len):
 
 #displays the puzzle in 10x10 grid
 def display_puzzle(puzzle, row_len):
-    """Function displays puzzle in 10x10 grid
+    """
+    Function displays puzzle in 10x10 grid
 
     Args:
-        string(str): inputted string
+        puzzle(str): inputted string
         row_len: number of characters per row
 
     Returns:
-        _puzzle(string): characters shifted around in 10x10 grid
+        10x10 puzzle (string): characters shifted around in 10x10 grid
     """
-    for i in range(len(puzzle)): #range is 0 to 100 for this program
-        if i % row_len == 0:
-            """
-                Here, we're basically checking each row with this if statement 
-            (due to the fact that i%row_len only is zero when i is a multiple 
-            of 10).
-                When i is a multiple of 10, we create a substring that's equal
-            to one row of the 10x10 matrix. We then iterate through every
-            letter in the substring
-            """
-            sub = puzzle[i:i+row_len]
-            _puzzle = ""
-            for j in sub:
-                _puzzle = _puzzle + j
-            print("".join(_puzzle))
+    start = 0
+    end = row_len
+    for num in range(row_len):
+        print(puzzle[start:end])
+        start += row_len
+        end += row_len
+
+
 
 def main():
     """Function returns the final puzzle
