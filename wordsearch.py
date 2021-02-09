@@ -54,7 +54,7 @@ def transpose_string(string: str, row_len: int):
         (Note: You can uncomment the print statements to see this work)
         """
         new_string = new_string + string[i::row_len]
-        i = i + 1
+
         #print(new_string)
         #print("loop " + str(i))
         #print("")
@@ -90,7 +90,7 @@ def find_word(puzzle, word, row_len):
         while i < (len(puzzle)):
             #While i is less than 9:
             """
-            First, we assign string1 to the puzzle string from position i to
+                First, we assign string1 to the puzzle string from position i to
             position i + row_len (from 0 to 3 in example). We then increase i
             by the row_len. We do this because we're searching through each
             row individually to find the word, that way we can return the
@@ -110,14 +110,14 @@ def find_word(puzzle, word, row_len):
             return word + ":" + " word not found"
 
         """
-        Here we define position so this is more readable. In our example, we
-        find 'DEF' at  position 3. Integer dividing our position 3 by our row
+            Here we define position so this is more readable. In our example, 
+        we find 'DEF' at  position 3. Integer dividing position 3 by our row
         length 3 gives us 1, which is the current row we are in. Modulating
-        our position 3 by our row_len 3 gives us 0, which is the current column
+        our position 3 by row_len 3 gives us 0, which is the current column
         'DEF' is located in the 3 x 3 matrix for this example.
-        
+
                                     column 0
-                                    v      
+                                    v
                                     ABC
                                     DEF <-- row 1
                                     GHI
@@ -128,6 +128,13 @@ def find_word(puzzle, word, row_len):
         return word + ":" + " (FORWARD)" + " row: " + str(row) + " column: " \
             + str(column)
 
+    """
+        From here on, the code largely resembles the same process stated in the
+    searching forward section. The only thing that changes is for backwards
+    and up, the position is related to the puzzle_len minus where the word is
+    found -1 due to the structure of searching for the words this way. Other
+    than that, the process of getting row and column is identical.
+    """
     #Searching backwards
     if backwards.find(word) != -1:
         position = puzzle_len - backwards.find(word) - 1
@@ -151,20 +158,31 @@ def find_word(puzzle, word, row_len):
         column = position // row_len
         return word + ":" + " (UP)" + " row: " + str(row) + " column: " \
             + str(column)
+    #If -1, returning that the word was not found.
     return word + ":" + " word not found"
 
 
 #displays the puzzle in 10x10 grid
 def display_puzzle(puzzle, row_len):
     """Function displays puzzle in 10x10 grid
+
     Args:
         string(str): inputted string
         row_len: number of characters per row
+
     Returns:
         _puzzle(string): characters shifted around in 10x10 grid
     """
-    for i in range(len(puzzle)):
+    for i in range(len(puzzle)): #range is 0 to 100 for this program
         if i % row_len == 0:
+            """
+                Here, we're basically checking each row with this if statement 
+            (due to the fact that i%row_len only is zero when i is a multiple 
+            of 10).
+                When i is a multiple of 10, we create a substring that's equal
+            to one row of the 10x10 matrix. We then iterate through every
+            letter in the substring
+            """
             sub = puzzle[i:i+row_len]
             _puzzle = ""
             for j in sub:
@@ -174,11 +192,14 @@ def display_puzzle(puzzle, row_len):
 def main():
     """Function returns the final puzzle
     Args:
+
         puzzle(str): inputted 100 characters
         word(str): words to find
+
     Returns:
         str: result of word search
     """
+
     puzzle = input("Enter a puzzle line: ")
     puzzle = puzzle.strip()
 
