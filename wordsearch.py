@@ -100,7 +100,7 @@ def find_word(puzzle, word, row_len):
             string1 = puzzle[i : i + row_len]
             value = string1.find(word)
             #Here, if .find() finds the word, we increment it by 1 and break
-            #from the loop. This does.....(what does this do again?)
+            #from the loop.
             if value != -1:
                 value = value + i
                 break
