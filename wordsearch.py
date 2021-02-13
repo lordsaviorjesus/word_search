@@ -205,9 +205,16 @@ def main():
     #Displaying the puzzle to user
     display_puzzle(puzzle, 10)
     print("")
+    
     """
-    Explanation
+    Here we have a while loop that runs as long as the 
+    length of words does not equal 0. We start the while loop by 
+    checking for blank spaces in "words" from user input. Everywhere
+    we see a blank space, we initiate a variable called words to start
+    from that index. We then search for this specifc word in puzzle
+    by calling the find_word function, which prints the results. 
     """
+    
     words += " "
     while len(words) != 0:
         blank = words.find(' ')

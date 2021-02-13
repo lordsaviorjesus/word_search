@@ -10,7 +10,7 @@ LGQCKGMMCT
 YCSLOACUZM
 XVDMGSXCYZ
 UUIUNIXFNU
-None
+ 
 UNIX: (FORWARD) row: 9 column: 3
 CALPOLY: (DOWN) row: 1 column: 0
 GCC: word not found
